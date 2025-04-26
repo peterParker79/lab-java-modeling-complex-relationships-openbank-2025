@@ -17,10 +17,9 @@ public class Chapter {
     @JoinColumn (name="president_id", referencedColumnName = "id") //crea un campo AQUI EN CHAPTER referenciando a member
     private Member president;
 
-   //relación de Chapter 1 - * Members de momento unidireccional
-    @OneToMany(mappedBy = "chapter")
-    //@OneToMany(cascade=CascadeType.ALL)
-    //@JoinColumn(name="chapter_id") Esto crea foreign key EN MEMBER
+   //relación de Chapter 1 - * Members
+    @OneToMany(mappedBy = "chapter") //chapter refiere al atributo chapter detro de Member
+
 
     private List<Member> members;
 }

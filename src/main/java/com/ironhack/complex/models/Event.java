@@ -34,12 +34,16 @@ public abstract class Event {
     @JoinColumn(name="event_id") // Agrega la columna event_id en la tabla guest (foreign key)
     private List<Guest> list = new ArrayList<>();
 
+    @Embedded
+    @Enumerated(EnumType.STRING)
+    EventType type;
+
 
     public Event() {}
 
-    public Event(int id, EventType eventType, LocalDate date,
+    public Event(EventType eventType, LocalDate date,
                  int duration, String location, String title, List<Guest> list) {
-        this.id = id;
+        //this.id = id;
         this.eventType = eventType;
         this.date = date;
         this.duration = duration;
