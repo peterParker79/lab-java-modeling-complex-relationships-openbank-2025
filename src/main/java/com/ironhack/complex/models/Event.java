@@ -31,7 +31,7 @@ public abstract class Event {
     //TODO hacer que desde Guest se pueda saber a que event pertenece (Relación Bidireccional)
     //en la Clase Guest habrá por tanto @ManyToOne @JoinColumn(name="event_id") Event event
     @OneToMany(cascade =CascadeType.ALL)
-    @JoinColumn(name="event_id") // Agrega la columna event_id en la tabla guest
+    @JoinColumn(name="event_id") // Agrega la columna event_id en la tabla guest (foreign key)
     private List<Guest> list = new ArrayList<>();
 
 

@@ -1,16 +1,28 @@
 package com.ironhack.complex.models;
 
-import jakarta.persistence.Embedded;
+import jakarta.persistence.*;
 
 import java.time.LocalDate;
-
+@Entity
+@Table(name="member")
 public class Member {
+    @Id
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    private int id;
+
+
     private String name;
 
     @Embedded
     private MemberStatus status;
 
     private LocalDate renewalDate;
+
+    // Cada miembro pertenece a una sede. Se crea aqui en MEMBER la foreign key(lado muchos)
+    @ManyToOne
+    @JoinColumn(name = "chapter_id")
+    private Chapter chapter;
+
 
     public Member() {
     }
